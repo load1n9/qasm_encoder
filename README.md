@@ -1,6 +1,7 @@
 # OpenQASM 3 encoder in deno
 
 ### Example
+
 ```ts
 import {
   Cbit,
@@ -22,8 +23,8 @@ example_circuit.add_gate(
   new Gate(
     "post",
     ["q"],
-    []
-  )
+    [],
+  ),
 );
 
 example_circuit.add_op(new Op("U", ["0.3", "0.2", "0.1", "q[0]"]));
@@ -42,7 +43,9 @@ example_circuit.add_op(new Op("measure", ["q[2]", "c2"]));
 const encoder = new OpenQASMEncoder(example_circuit);
 await Deno.writeTextFile("teleport.qasm", encoder.encode());
 ```
+
 #### teleport.qasm
+
 ```
 OPENQASM 3;
 include "stdgates.inc";
