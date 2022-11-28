@@ -7,3 +7,4 @@ export { Qubit } from "./src/Qubit.ts";
 export { Input } from "./src/Input.ts";
 export { Cbit } from "./src/Cbit.ts";
 export { Comment } from "./src/Comment.ts";
+export { If } from "./src/If.ts";

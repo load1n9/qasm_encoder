@@ -1,0 +1,5 @@
+{
+    "tasks": {
+        "example": "deno run -A --unstable examples/teleport.ts"
+    }
+}

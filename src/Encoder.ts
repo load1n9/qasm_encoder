@@ -96,10 +96,23 @@ export class OpenQASMEncoder {
   encode_ops(): void {
     for (const op of this.#circuit.ops) {
       this.#qasm += `${op.name}`;
-      for (const arg of op.args) {
-        this.#qasm += ` ${arg}`;
+      if (op.isArgs2) {
+        this.#qasm += `(`;
+        for (const arg of op.args) {
+          this.#qasm += ` ${arg}`;
+        }
+        this.#qasm += ` )`;
+        if (op.braces) this.#qasm += ` {`;
+        for (const arg of op.args2) {
+          this.#qasm += ` ${arg}`;
+        }
+        if (op.braces) this.#qasm += `; }`;
+      } else {
+        for (const arg of op.args) {
+          this.#qasm += ` ${arg}`;
+        }
       }
-      this.#qasm += ";\n";
+      this.#qasm += op.isArgs2 && op.braces ? "\n" :";\n";
     }
     this.#qasm += "\n";
   }
